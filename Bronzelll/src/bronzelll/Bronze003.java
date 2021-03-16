@@ -3,7 +3,7 @@ package bronzelll;
 import java.math.BigInteger;
 import java.util.*;
 
-public class Bronze003 {
+public class Bronze003 { // 1시간 소요(개념을 새로 익힘)
 
 	public static void main(String[] args) { // 9223372036854775807가 unsigned long long 크기의 반에서 -1한 값임. 자바에서는 long에 해당!!
 											 // 런타임 에러! ( 두 수를 더하거나 음수의 경우 빼게 되면 long 범위를 넘어감! 이럴 땐 BigInteger(무한대수) 사용해야햠, 실수의 경우 BigDecimal도 존재!

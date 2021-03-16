@@ -1,7 +1,7 @@
 package bronzelll;
 
 import java.util.*;
-public class Bronze002 {
+public class Bronze002 { // 13ºÐ ¼Ò¿ä
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
