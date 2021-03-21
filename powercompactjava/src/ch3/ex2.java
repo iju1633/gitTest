@@ -10,8 +10,8 @@ public class ex2 {
 		Scanner sc = new Scanner(System.in);
 		int num = sc.nextInt();
 		
-		if(num<1)
-			System.out.println("OTHER");
+		if(num == 1)
+			System.out.println("ONE");
 		else if(num == 2)
 			System.out.println("TWO");
 		else if(num == 3)
