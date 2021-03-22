@@ -1,10 +1,10 @@
-package ch3class;
+package ch3Assignment;
 
-import java.util.*;
+import java.util.Scanner;
 
-public class Ex3by15 {
+public class EX3_6 {
 
-	public static void main(String[] args) { // // 비기는 경우에 대해서는 다루지 않았음
+	public static void main(String[] args) { // 비기는 경우에 대해서는 다루지 않았음
 		// 코딩의 흐름 : 내가 돌을 놓는다 -> 빙고인지 확인 -> 아니면 컴퓨터가 돌을 놓는다 -> 빙고인지 확인 -> 반복(내가 돌을 놓을 차례)
 		// 빙고일 경우 빙고판 출력하고 결과 출력 후 게임 종료
 
