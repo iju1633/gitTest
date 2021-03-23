@@ -41,15 +41,16 @@ public class EX3_6 {
 				board[x][y] = 'X';
 			}
 
-			// 컴퓨터가 돌을 놓는 순서 중요함(내가 놓고 나서, 빙고인지 판단하고 돌을 놓아야함. 나도 놓고 컴퓨터도 놓고 판단하면 둘다 승리 가능
+			// 컴퓨터가 돌을 놓는 순서 중요함(내가 놓고 나서, 빙고인지 판단하고 돌을 놓아야함. 나도 놓고 컴퓨터도 놓고 판단하면 둘다 승리 가능)
 			// 컴퓨터가 놓을 자리 : 위에서부터 차곡차곡이라는 것이 한계 -> 정밀하려면 random으로 바꿔줄 필요 있음
 
-
+			int cnt = 0; // 무승부일 경우를 대비해서 만든 변수
+			
 			// 가로선 비교
 			for (int k = 0; k < 3; k++) { // 줄은 총 3개
 				if (board[k][0] == 'O' && board[k][1] == 'O' && board[k][2] == 'O') { // 열별로 비교해서 모든 값이 O이면 computer
 																						// won! 출력하고 프로그램 끝내야함
-
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -57,10 +58,12 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("computer won!");
+					System.out.println("컴퓨터 승리");
 					break outer;
 
 				} else if (board[k][0] == 'X' && board[k][1] == 'X' && board[k][2] == 'X') {
+					
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -68,7 +71,7 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("human won!");
+					System.out.println("인간 승리");
 					break outer;
 				}
 			}
@@ -76,7 +79,7 @@ public class EX3_6 {
 			// 세로선 비교
 			for (int k = 0; k < 3; k++) { // 줄은 총 3개
 				if (board[0][k] == 'O' && board[1][k] == 'O' && board[2][k] == 'O') {
-
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -84,9 +87,10 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("computer won!");
+					System.out.println("컴퓨터 승리");
 					break outer;
 				} else if (board[0][k] == 'X' && board[1][k] == 'X' && board[2][k] == 'X') {
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -94,7 +98,7 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("human won!");
+					System.out.println("인간 승리");
 					break outer;
 				}
 
@@ -102,9 +106,8 @@ public class EX3_6 {
 
 			// 대각선 \모양
 
-			if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
-
-			{
+			if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O') {
+				cnt++;
 				for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
 					System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
@@ -112,9 +115,10 @@ public class EX3_6 {
 						System.out.println("---|---|---");
 					}
 				}
-				System.out.println("computer won!");
+				System.out.println("컴퓨터 승리");
 				break;
 			} else if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') {
+				cnt++;
 				for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
 					System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
@@ -122,15 +126,16 @@ public class EX3_6 {
 						System.out.println("---|---|---");
 					}
 				}
-				System.out.println("human won!");
+				System.out.println("인간 승리");
 				break;
 			}
 
 			// 대각선 /모양
 
 			if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
-
+				
 				if (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O') {
+					cnt++;
 					for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
 						System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
@@ -138,9 +143,10 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("computer won!");
+					System.out.println("컴퓨터 승리");
 					break;
 				} else if (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X') {
+					cnt++;
 					for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
 						System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
@@ -148,7 +154,7 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("human won!");
+					System.out.println("인간 승리");
 					break;
 				}
 			}
@@ -179,7 +185,7 @@ public class EX3_6 {
 			// 가로선 비교
 			for (int k = 0; k < 3; k++) { // 줄은 총 3개
 				if (board[k][0] == 'O' && board[k][1] == 'O' && board[k][2] == 'O') { // 열별로 비교해서 모든 값이 O이면 computer won! 출력하고 프로그램 끝내야함
-
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -187,10 +193,11 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("computer won!");
+					System.out.println("컴퓨터 승리");
 					break outer;
 
 				} else if (board[k][0] == 'X' && board[k][1] == 'X' && board[k][2] == 'X') {
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -198,7 +205,7 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("human won!");
+					System.out.println("인간 승리");
 					break outer;
 				}
 			}
@@ -206,7 +213,7 @@ public class EX3_6 {
 			// 세로선 비교
 			for (int k = 0; k < 3; k++) { // 줄은 총 3개
 				if (board[0][k] == 'O' && board[1][k] == 'O' && board[2][k] == 'O') {
-
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -214,9 +221,10 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("computer won!");
+					System.out.println("컴퓨터 승리");
 					break outer;
 				} else if (board[0][k] == 'X' && board[1][k] == 'X' && board[2][k] == 'X') {
+					cnt++;
 					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
 
@@ -224,7 +232,7 @@ public class EX3_6 {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("human won!");
+					System.out.println("인간 승리");
 					break outer;
 				}
 
@@ -232,56 +240,79 @@ public class EX3_6 {
 
 			// 대각선 \모양
 
-			if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
-
-			{
-				for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
+			if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O') {
+				cnt++;
+				for (int k = 0; k < 3; k++) { // 바둑판 결과 보여주기
 					System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
 					if (k != 2) {
 						System.out.println("---|---|---");
 					}
 				}
-				System.out.println("computer won!");
+				System.out.println("컴퓨터 승리");
 				break;
 			} else if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') {
-				for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
+				cnt++;
+				for (int k = 0; k < 3; k++) { // 바둑판 결과 보여주기
 					System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
 					if (k != 2) {
 						System.out.println("---|---|---");
 					}
 				}
-				System.out.println("human won!");
+				System.out.println("인간 승리");
 				break;
 			}
 
 			// 대각선 /모양
 
 			if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
-
+				
 				if (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O') {
-					for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
+					cnt++;
+					for (int k = 0; k < 3; k++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
 						if (k != 2) {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("computer won!");
+					System.out.println("컴퓨터 승리");
 					break;
 				} else if (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X') {
-					for (int k = 0; k < 3; k++) { // 바둑판 그리기(O와 X가 들어갈 자리를 만들어 놓음)
+					cnt++;
+					for (int k = 0; k < 3; k++) { // 바둑판 결과 보여주기
 						System.out.println("  " + board[k][0] + "|  " + board[k][1] + "|  " + board[k][2]);
 
 						if (k != 2) {
 							System.out.println("---|---|---");
 						}
 					}
-					System.out.println("human won!");
+					System.out.println("인간 승리");
 					break;
 				}
 			}
+			
+			// 비기는 경우
+			outter2 : for(int i=0; i<3; i++) {
+				for(int j=0; j<3; j++) {
+					if (board[i][j] == ' ') {
+						break outter2;
+					}
+				} // 바둑판이 비어있지 않다면 if문으로 내려감
+				if(cnt == 0) { // 다 차있는데 빙고된게 없다면 비겼다고 결과 출력
+					for (int l = 0; l < 3; l++) { // 바둑판 결과 보여주기
+						System.out.println("  " + board[l][0] + "|  " + board[l][1] + "|  " + board[l][2]);
+
+						if (l != 2) {
+							System.out.println("---|---|---");
+						}
+					}
+					System.out.println("무승부");
+					break outer;
+				}
+			}
+			
 
 		} while (true);
 
