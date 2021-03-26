@@ -13,7 +13,7 @@ public class EX3_5 {
 		array[0] = 0;
 		array[1] = 1;
 		for (int i = 1; i < input - 1; i++) {
-			array[i + 1] = array[i] + array[i-1];
+			array[i + 1] = array[i] + array[i-1]; // 주어진 조건에 맞게 처리해야함
 		}
 
 		for (int i = 0; i < array.length; i++) {

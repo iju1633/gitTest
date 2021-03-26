@@ -3,7 +3,7 @@ package ch3Assignment;
 public class EX3_7 {
 
 	public static void main(String[] args) {
-		
+
 		String[] array1 = { "Clubs", "Diamonds", "Hearts", "Spades" };
 		String[] array2 = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 		for (int i = 0; i < 5; i++) {
