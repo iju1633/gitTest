@@ -1,7 +1,7 @@
 package ch4;
 
 	
-	class Boksosu{
+	class Boksosu{ // class 개념이 안잡혀있고 setReal()이런 매서드를 만드는 것을 두려워했음
 		
 		int real, imag;
 		
