@@ -42,7 +42,7 @@ class Plane {
 		this.passengers = passengers;
 	}
 
-	static int getPlanes() {
+	public static int getPlanes() {
 		return planes;
 	}
 

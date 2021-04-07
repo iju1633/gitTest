@@ -13,7 +13,7 @@ class Account {
 		System.out.println("새로운 " + name + " 계좌가 생성되었습니다.");
 	}
 
-	void withdraw(int amount) {
+	public void withdraw(int amount) {
 		if (balance < amount) { // balance가 인출하려는 값보다 적게 있으면 인출 못하므로 호출 시점에서 시스템이 끝나게 함
 			System.out.println("잔금이 부족합니다.");
 			System.exit(0);
@@ -22,12 +22,12 @@ class Account {
 		System.out.println(amount + "원 인출");
 	}
 
-	void deposit(int amount) {
+	public void deposit(int amount) {
 		balance += amount;
 		System.out.println(amount + "원 저축");
 	}
 
-	void transfer(int amount, Account account) { // 현재 계좌에서 매개변수의 계좌로 amount만큼 전송
+	public void transfer(int amount, Account account) { // 현재 계좌에서 매개변수의 계좌로 amount만큼 전송
 		if (balance < amount) { // balance가 전송하려는 값보다 적게 있으면 전송 못하므로 호출 시점에서 시스템이 끝나게 함
 			System.out.println("잔금이 부족합니다.");
 			System.exit(0);
@@ -37,7 +37,7 @@ class Account {
 		System.out.println(this.name + "가 " + account.name + "에게 " + amount + "원 이체함");
 	}
 
-	void print() {
+	public void print() {
 		System.out.println("고객 " + this.name + " 계좌잔고=" + balance + "원");
 	}
 }

@@ -9,15 +9,15 @@ class Complex {
 		image = 0;
 	}
 
-	void setReal(int real) {
+	public void setReal(int real) {
 		this.real = real;
 	}
 
-	void setImage(int image) {
+	public void setImage(int image) {
 		this.image = image;
 	}
 
-	void print() {
+	public void print() {
 		System.out.println(real + "+" + image + "i");
 	}
 }
