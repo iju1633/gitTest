@@ -25,6 +25,7 @@ class Complex {
 public class EX4_2 {
 
 	public static void main(String[] args) {
+
 		Complex complex = new Complex();
 		complex.setReal(10);
 		complex.setImage(20);

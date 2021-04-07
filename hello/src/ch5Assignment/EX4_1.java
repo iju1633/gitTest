@@ -31,6 +31,7 @@ public class EX4_1 {
 		while (true) {
 			dice1.setValue();
 			int result1 = dice1.getValue();
+			
 			dice2.setValue();
 			int result2 = dice2.getValue();
 

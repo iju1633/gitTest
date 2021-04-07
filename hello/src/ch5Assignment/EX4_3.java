@@ -1,24 +1,22 @@
 package ch5Assignment;
 
-class Account { // 생성자 오버라이딩해서 새로운 철수계좌가 생성되었습니다.와 같은 표현을 출력하게 해도 되는지
-				// 부가적인 내용인데, withdraw이나 transfer할 때 balance가 인출이나 전송하려는 값보다 
-				// 작으면 함수가 실행되어서는 안되니까 이에 대한 조치도 해야하는지
+class Account {
+
 	String name;
 	int balance;
 
-	public Account() {
-		name = "철수";
-		balance = 0;
-	}
-
 	public Account(String name) {
+		this.name = "철수/영희";
+		balance = 0;
+
 		this.name = name;
 		System.out.println("새로운 " + name + " 계좌가 생성되었습니다.");
 	}
 
 	void withdraw(int amount) {
-		if (balance < amount) {
+		if (balance < amount) { // balance가 인출하려는 값보다 적게 있으면 인출 못하므로 호출 시점에서 시스템이 끝나게 함
 			System.out.println("잔금이 부족합니다.");
+			System.exit(0);
 		}
 		balance -= amount;
 		System.out.println(amount + "원 인출");
@@ -30,8 +28,9 @@ class Account { // 생성자 오버라이딩해서 새로운 철수계좌가 생성되었습니다.와 같�
 	}
 
 	void transfer(int amount, Account account) { // 현재 계좌에서 매개변수의 계좌로 amount만큼 전송
-		if (balance < amount) {
+		if (balance < amount) { // balance가 전송하려는 값보다 적게 있으면 전송 못하므로 호출 시점에서 시스템이 끝나게 함
 			System.out.println("잔금이 부족합니다.");
+			System.exit(0);
 		}
 		balance -= amount;
 		account.balance += amount;
