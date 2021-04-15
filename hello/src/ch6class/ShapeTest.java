@@ -60,7 +60,7 @@ public class ShapeTest {
 		arrayOfShape2[1] = new Triangle();
 		arrayOfShape2[2] = new Circle2();
 
-		for (int i = 0; i < arrayOfShape2.length; i++) {
+		for (int i = 0; i < arrayOfShape2.length; i++) { // 동적 바인딩
 			arrayOfShape2[i].draw();
 
 			if (arrayOfShape2[i] instanceof Rectangle2) { // 객체 타입 비교하는 것으로 true나 false를 반환
